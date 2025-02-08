@@ -167,14 +167,15 @@ Here are some key screenshots of the **Crime Management System**:
 ### 2️⃣ **Suspect Details Page**
 ![Suspect Details Page](images/js4.png)
 
-### 3️⃣ **Communication Logging**
+### 3️⃣ **Add Suspect Form**
+![Add Suspect Form](images/js2.png)
+
+### 4️⃣ **Communication Logging**
 ![Communication Logging](images/js3.png)
 
-### 4️⃣ **Network Visualization**
+### 5️⃣ **Network Visualization**
 ![Network Visualization](images/js5.png)
 
-### 5️⃣ **Add Suspect Form**
-![Add Suspect Form](images/js2.png)
 
 📢 Final Thoughts
 -----------------
