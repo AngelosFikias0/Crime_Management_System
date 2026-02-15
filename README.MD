@@ -1,185 +1,115 @@
-Crime Management System
-=======================
+# 🕵️ Crime Management System
 
-📌 Overview
------------
+> **An advanced Java-based investigative platform for tracking suspects, analyzing communications, and visualizing criminal networks.**
 
-The **Crime Management System** is a sophisticated Java application designed to simulate an investigative platform where administrators can track and manage suspects, their communications, and their networks. The system enables users to add suspects with key details, log communications in the form of SMS or phone calls, and analyze social connections using graph visualization techniques.
+The **Crime Management System** is a modular application designed to simulate real-world forensic analysis. It enables investigators to manage suspect profiles, log multi-channel communications (SMS/Calls), and uncover hidden social connections using **Graph Theory** and the **JUNG (Java Universal Network/Graph) Framework**.
 
-This project demonstrates expertise in **Object-Oriented Programming (OOP), Java Swing (GUI development), file handling, data structures, and system architecture**, making it a prime showcase of analytical thinking, problem-solving, and system design skills.
+---
 
-🚀 Features
------------
+## 📌 System Architecture
 
-### 🔍 **Suspect Management**
+The project follows a **Modular Object-Oriented Design**, ensuring high maintainability and clear separation of concerns:
 
-*   Add suspects with **name, codename, city, and phone numbers**.
-    
-*   View suspect details, including their partners and suggested partners based on the **triangular closure rule**.
-    
-*   Add additional phone numbers dynamically.
-    
+```text
+       [ GUI Layer (Swing) ]
+      (FindSuspect / SuspectPage)
+                 |
+                 v
+      [ Logic Layer (Registry) ] <------- [ Graph Analysis ]
+                 |                        (Triangular Closure)
+        /--------+--------\
+        |                 |
+ [ Suspect Data ]   [ Communications ]
+ (Profiles/Phones)   (SMS / PhoneCalls)
+        |                 |
+        \--------+--------/
+                 |
+                 v
+      [ Data Layer (File I/O) ]
+```
 
-### 📞 **Communication Tracking**
+### 🔹 Key Class Responsibilities
+* **Registry:** The central data hub; manages the collections of suspects and orchestrates the analysis.
+* **Suspect:** Handles individual attributes, including the "triangular closure" logic for suggesting potential partners.
+* **Communication (Abstract):** The base for `PhoneCall` and `SMS` subclasses, utilizing polymorphism for record-keeping.
+* **Visualize:** Leverages the **JUNG Framework** to render the suspect network and calculate the graph's diameter.
 
-*   Record **SMS messages and phone calls** between suspects.
-    
-*   Store and analyze communications in a **Registry**, which serves as the backbone of the system.
-    
-*   Identify suspicious messages and interactions.
-    
+---
 
-### 📊 **Network Visualization & Analysis**
+## 🚀 Core Features
 
-*   Generate an interactive **graph-based visualization** of the suspect network using **JUNG (Java Universal Network/Graph Framework)**.
-    
-*   Analyze the **diameter of the graph** (longest shortest path between two nodes).
-    
-*   Easily identify key suspects and their relationships.
-    
-
-### 📝 **Data Management & Export**
-
-*   Search for suspects and retrieve detailed information.
-    
-*   Export suspect records to a **text file** for reporting purposes.
-    
-*   Validate input fields for **error-free data entry**.
-    
-
-🎨 User Interface
------------------
-
-### 🏠 **Main Dashboard**
-
-*   Search for a suspect by name to view their details.
-    
-*   Add new suspects and communications.
-    
-*   Visualize the network of suspects using **graph representation**.
-    
-*   Print the suspect list as a **text file**.
-    
-
-### 📄 **Suspect Details Page**
-
-*   Displays **basic details, phone numbers, and existing communications**.
-    
-*   Input area to add **new phone numbers**.
-    
-*   Search functionality to filter SMS messages.
-    
-*   Suggested partners feature using **triangular closure analysis**.
-    
-
-### 📊 **Network Visualization**
-
-*   Interactive **graph layout** to explore suspect connections.
-    
-*   Dynamic node and edge rendering.
-    
-*   Calculation and display of the **network's diameter**.
-    
-
-### 📥 **Data Entry Forms**
-
-*   Add suspects with **validation for name, codename, city, and phone numbers**.
-    
-*   Log communications by distinguishing between **SMS and phone calls**.
-    
-*   User-friendly input fields with placeholder handling.
-    
-
-🏗 System Architecture
-----------------------
-
-The project follows a **modular and object-oriented approach**, ensuring scalability, maintainability, and ease of extension.
-
-### 🔹 **Key Classes & Responsibilities**
-
-*   **Main**: Initializes the system with preset suspects and communications, and launches the main GUI.
-    
-*   **Registry**: Central data repository managing suspects and communications, performing key analysis.
-    
-*   **Suspect**: Represents an individual suspect with attributes like **name, codename, city, phone numbers, and partnerships**.
-    
-*   **Communication (Abstract)**: Base class defining shared attributes for different communication types.
-    
-    *   **PhoneCall**: Inherits from Communication, stores call duration, and implements printInfo().
-        
-    *   **SMS**: Inherits from Communication, stores message content, and implements printInfo().
-        
-*   **FindSuspect**: Main GUI class for suspect lookup and system navigation.
-    
-*   **SuspectPage**: Displays details about a specific suspect.
-    
-*   **Visualize**: Generates the suspect network visualization using **JUNG**.
-    
-*   **Input**: GUI class for adding new suspects.
-    
-*   **CommsInput**: Handles input of **SMS and phone call records**, validates fields, and updates the registry.
-    
-
-🔧 Technologies & Skills Used
------------------------------
-
-*   **Java (OOP, Data Structures, System Design)**
-    
-*   **Java Swing (GUI Development)**
-    
-*   **JUNG (Graph Visualization & Analysis)**
-    
-*   **File Handling (Java I/O)**
-    
-*   **Graph Theory (Triangular Closure, Network Diameter Calculation)**
-    
-*   **Algorithm Design & Data Processing**
-    
-
-💼 Why This Project Stands Out
-------------------------------
-
-*   **Demonstrates expertise** in **Java programming, system design, and GUI applications**.
-    
-*   Implements **graph-based analysis** for real-world crime investigation scenarios.
-    
-*   Uses **data validation, file management, and visualization** techniques.
-    
-*   Showcases a **well-structured, modular system**, built for **extensibility and maintainability**.
-    
-
-📌 Future Enhancements
-----------------------
-
-*   Integration with **databases (e.g., MySQL, SQLite) for persistent storage**.
-    
-*   Enhance UI with **modern JavaFX styling**.
-    
-
-📸 Screenshots
---------------
-
-Here are some key screenshots of the **Crime Management System**:
-
-### 1️⃣ **Main Dashboard**
-![Main Dashboard](images/js1.png)
-
-### 2️⃣ **Suspect Details Page**
-![Suspect Details Page](images/js4.png)
-
-### 3️⃣ **Add Suspect Form**
-![Add Suspect Form](images/js2.png)
-
-### 4️⃣ **Communication Logging**
-![Communication Logging](images/js3.png)
-
-### 5️⃣ **Network Visualization**
-![Network Visualization](images/js5.png)
+### 🔍 Suspect & Partner Management
+* **Dynamic Profiles:** Add suspects with codenames, multiple phone numbers, and home cities.
+* **Triangular Closure Rule:** Automatically suggests potential partners by identifying common associates in the network.
 
 
-📢 Final Thoughts
------------------
+### 📞 Communication Tracking
+* **Multi-Modal Logs:** Distinguish between SMS (content-based) and Phone Calls (duration-based).
+* **Suspicious Activity:** Flag and filter messages based on specific criteria within the Registry.
 
-The **Crime Management System** is a testament to **strong problem-solving, software architecture, and Java development skills**. By combining **OOP principles, graph theory, and intuitive GUI design**, this project demonstrates the ability to build **scalable, analytical, and real-world applications**.
+### 📊 Network Visualization
+* **Interactive Graphs:** Dynamic node/edge rendering to explore relationships visually.
+* **Mathematical Analysis:** Calculation of the **Network Diameter** (the longest shortest path) to assess the reach of a criminal ring.
 
-🚀 _Built with passion and precision!_
+### 📝 Reporting & Export
+* **File Integration:** Export detailed suspect records to standardized `.txt` files.
+* **Data Integrity:** Strict input validation for phone formats and required fields.
+
+---
+
+## 🧰 Technical Stack
+
+| Category | Technology |
+| :--- | :--- |
+| **Language** | Java (OOP Principles) |
+| **GUI** | Java Swing |
+| **Graphing** | JUNG (Java Universal Network/Graph Framework) |
+| **Data Structures** | ArrayLists, HashMaps, Graph Collections |
+| **Persistence** | Java I/O (Text-based Export) |
+
+---
+
+## 🛠 Installation & Setup
+
+### Prerequisites
+* **Java JDK 8 or higher** installed.
+* **JUNG Libraries** (`jung-graph-impl`, `jung-visualization`, etc.) added to your build path.
+
+### Steps
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/AngelosFikias0/Crime_Management_System.git](https://github.com/AngelosFikias0/Crime_Management_System.git)
+   ```
+2. **Compile the source:**
+   ```bash
+   javac -cp "lib/*" src/*.java -d bin
+   ```
+3. **Run the application:**
+   ```bash
+   java -cp "bin:lib/*" Main
+   ```
+
+---
+
+## 📸 Interface Preview
+
+| Dashboard | Network Graph |
+| :---: | :---: |
+| ![Main Dashboard](images/js1.png) | ![Network Visualization](images/js5.png) |
+| *Suspect Lookup & Entry* | *Relational Analysis* |
+
+---
+
+## 📈 Future Roadmap
+
+- [ ] **Database Integration:** Migrate from in-memory/file storage to **MySQL** or **SQLite**.
+- [ ] **Modernized UI:** Transition from Swing to **JavaFX** for enhanced styling and animations.
+- [ ] **Geolocation:** Integrate maps to visualize suspect distribution by city.
+
+---
+
+## 📄 About the Author
+Developed by **Angelos Fikias** as a showcase of analytical software engineering, algorithmic processing, and robust system architecture.
+
+---
+*Built with passion for clean code and forensic logic.*
