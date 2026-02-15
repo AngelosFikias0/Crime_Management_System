@@ -1,4 +1,4 @@
-# 🕵️ Crime Management System
+# Crime Management System
 
 > **An advanced Java-based investigative platform for tracking suspects, analyzing communications, and visualizing criminal networks.**
 
